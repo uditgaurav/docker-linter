@@ -20,6 +20,8 @@ set -e
 # If there were errors as part of linting, post a comment. Else, do nothing.
 if [ $SUCCESS -ne 0 ]; then
   PAYLOAD=$(echo '{}' | jq --arg body "$OUTPUT" '.body = $body')
+  echo "CAT:"
+  cat /github/workflow/event.json
   COMMENTS_URL=$(cat /github/workflow/event.json | jq -r .pull_request.comments_url)
   echo "GITHUB_TOKEN: $GITHUB_TOKEN PAYLOAD: $PAYLOAD COMMENTS_URL: $COMMENTS_URL"
   curl -s -S -H 'Authorization: token $GITHUB_TOKEN' --header 'Content-Type:application/json' --data "$PAYLOAD" "$COMMENTS_URL" > /dev/null
