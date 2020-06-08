@@ -1,0 +1,8 @@
+name: 'DockerLinter'
+description: 'Lint a Dockerfile'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'terminal'
+  color: 'red'
