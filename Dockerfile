@@ -13,5 +13,5 @@ RUN	apk add --no-cache \
 	jq
 
 COPY dockerfile-linter.sh /usr/bin/
-RUN chmod 755 /usr/bin/dockerfile-linter.sh
-ENTRYPOINT ["dockerfile-linter.sh"]
+RUN chmod 755 /usr/bin/docker-linter.sh
+ENTRYPOINT ["docker-linter.sh"]
